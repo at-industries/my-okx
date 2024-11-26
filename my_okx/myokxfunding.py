@@ -1,10 +1,6 @@
-from .data.constants import *
-from .models.networkinfo import *
-from .models.assetbalance import *
-
 from logging import Logger
 from requests import Response
-from typing import Union, Optional, Tuple
+from typing import Union, Tuple
 
 import hmac
 import json
@@ -12,6 +8,10 @@ import base64
 import datetime
 import requests
 import inspect
+
+from .data.constants import *
+from .models.networkinfo import *
+from .models.assetbalance import *
 
 
 class MyOkxFunding:
