@@ -37,6 +37,16 @@ class MyOkxFunding:
             proxy: Optional[str] = None,
             logger: Optional[Logger] = None,
     ):
+        """
+        MyOkxFunding is a convenient library for interacting with the OKX Funding API.
+        OKX API Documentation: https://www.okx.cab/docs-v5/en/#overview
+
+        :param api_key: API Key (generated on the OKX website)
+        :param secret_key: Secret Key (generated on the OKX website)
+        :param passphrase: Passphrase (created by the user during API key generation on OKX)
+        :param proxy: HTTP/HTTPS proxy (e.g., user12345:abcdef@12.345.67.890:1234)
+        :param logger: Logger object (used to log received responses)
+        """
         self._api_key = api_key
         self._api_secret = secret_key
         self._passphrase = passphrase
