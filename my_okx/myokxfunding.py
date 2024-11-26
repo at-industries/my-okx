@@ -39,13 +39,18 @@ class MyOkxFunding:
     ):
         """
         MyOkxFunding is a convenient library for interacting with the OKX Funding API.
-        OKX API Documentation: https://www.okx.cab/docs-v5/en/#overview
+        For more details, refer to the OKX API Documentation: https://www.okx.cab/docs-v5/en/#overview
+
+        Almost all class methods (except utility functions) return tuples, with an integer status as the first element:
+        - `0`: Success status (indicates the method completed successfully; the second element in the tuple contains the result)
+        - `-1`: Error status (indicates the method failed; the second element in the tuple contains an error message)
 
         :param api_key: API Key (generated on the OKX website)
         :param secret_key: Secret Key (generated on the OKX website)
         :param passphrase: Passphrase (created by the user during API key generation on OKX)
         :param proxy: HTTP/HTTPS proxy (e.g., user12345:abcdef@12.345.67.890:1234)
         :param logger: Logger object (used to log received responses)
+        :return: None
         """
         self._api_key = api_key
         self._api_secret = secret_key
@@ -54,7 +59,7 @@ class MyOkxFunding:
         self._logger = logger
         self._httpClient = requests.Session()
 
-    async def check_keys(self) -> Tuple[int, Union[bool, Exception]]:
+    async def check_keys(self, ) -> Tuple[int, Union[bool, Exception]]:
         log_process = f'{inspect.currentframe().f_code.co_name}'
         try:
             endpoint = '/api/v5/account/balance'
