@@ -75,7 +75,10 @@ class MyOKX:
             return -1, Exception(f'{log_process} | {e}')
 
     async def PUBLIC_get_price_limit(self, ticker: str) -> Tuple[int, Union[dict, Exception]]:
-        """Gets the buy and sell limits (in USDT) for a specific coin by its ticker (e.g., BTC, ETH)."""
+        """
+        Gets the buy and sell limits (in USDT) for a specific coin by its ticker (e.g., BTC, ETH).
+        Endpoint: https://www.okx.cab/docs-v5/en/#public-data-rest-api-get-limit-price
+        """
         log_process = f'{inspect.currentframe().f_code.co_name}'
         try:
             endpoint = f'/api/v5/public/price-limit'
@@ -98,7 +101,10 @@ class MyOKX:
             return -1, Exception(f'{log_process} | {e}')
 
     async def FUNDING_is_connected(self, ) -> Tuple[int, Union[bool, Exception]]:
-        """Checks the connection to the funding account."""
+        """
+        Checks the connection to the funding account.
+        Endpoint: https://www.okx.cab/docs-v5/en/#funding-account-rest-api-get-balance
+        """
         log_process = f'{inspect.currentframe().f_code.co_name}'
         try:
             endpoint = f'/api/v5/asset/balances'
@@ -121,7 +127,10 @@ class MyOKX:
             return -1, Exception(f'{log_process} | {e}')
 
     async def FUNDING_get_balance(self, ticker: Optional[str] = None) -> Tuple[int, Union[dict, Exception]]:
-        """Gets the balance of the funding account for a specific coin and for all coins."""
+        """
+        Gets the balance of the funding account for a specific coin and for all coins.
+        Endpoint: https://www.okx.cab/docs-v5/en/#funding-account-rest-api-get-balance
+        """
         log_process = f'{inspect.currentframe().f_code.co_name}'
         try:
             endpoint = f'/api/v5/asset/balances'
@@ -160,7 +169,10 @@ class MyOKX:
             return -1, Exception(f'{log_process} | {e}')
 
     async def FUNDING_get_chains_info(self, ticker: Optional[str] = None) -> Tuple[int, Union[dict, Exception]]:
-        """Gets information about all currency chains (e.g., withdraw_min_value, withdraw_min_fee, withdraw_tick_size)."""
+        """
+        Gets information about all currency chains (e.g., withdraw_min_value, withdraw_min_fee, withdraw_tick_size).
+        Endpoint: https://www.okx.cab/docs-v5/en/#funding-account-rest-api-get-currencies
+        """
         log_process = f'{inspect.currentframe().f_code.co_name}'
         try:
             endpoint = f'/api/v5/asset/currencies'
@@ -204,7 +216,10 @@ class MyOKX:
             return -1, Exception(f'{log_process} | {e}')
 
     async def FUNDING_post_withdrawal(self, ticker: str, chain: str, address: str, amount: float, fee: float) -> Tuple[int, Union[str, Exception]]:
-        """Posts a withdrawal on the chain for a specific ticker and chain (withdrawals must be available for created API keys)."""
+        """
+        Posts a withdrawal on the chain for a specific ticker and chain (withdrawals must be available for created API keys).
+        Endpoint: https://www.okx.cab/docs-v5/en/#funding-account-rest-api-withdrawal
+        """
         log_process = f'{inspect.currentframe().f_code.co_name}'
         try:
             endpoint = '/api/v5/asset/withdrawal'
@@ -244,7 +259,10 @@ class MyOKX:
             return -1, Exception(f'{log_process} | {e}')
 
     async def FUNDING_get_withdrawal(self, withdrawal_id: str) -> Tuple[int, Union[dict, Exception]]:
-        """Gets information about a withdrawal (e.g., status, transaction_hash)."""
+        """
+        Gets information about a withdrawal (e.g., status, transaction_hash).
+        Endpoint: https://www.okx.cab/docs-v5/en/#funding-account-rest-api-get-withdrawal-history
+        """
         log_process = f'{inspect.currentframe().f_code.co_name}'
         try:
             endpoint = '/api/v5/asset/withdrawal-history'
@@ -274,7 +292,10 @@ class MyOKX:
             return -1, Exception(f'{log_process} | {e}')
 
     async def FUNDING_check_withdrawal(self, withdrawal_id: str) -> Tuple[int, Union[bool, Exception]]:
-        """Checks if the withdrawal is completed by its withdrawal_id (the withdrawal_id is returned after posting the withdrawal on the chain)."""
+        """
+        Checks if the withdrawal is completed by its withdrawal_id
+        (the withdrawal_id is returned after posting the withdrawal on the chain).
+        """
         log_process = f'{inspect.currentframe().f_code.co_name}'
         try:
             status, result = await self.FUNDING_get_withdrawal(withdrawal_id=withdrawal_id)
@@ -293,7 +314,10 @@ class MyOKX:
             return -1, Exception(f'{log_process} | {e}')
 
     async def SUBACOUNT_get_subaccounts(self, ) -> Tuple[int, Union[list, Exception]]:
-        """Gets the names of all subaccounts created under the main OKX account."""
+        """
+        Gets the names of all subaccounts created under the main OKX account.
+        Endpoint: https://www.okx.cab/docs-v5/en/#sub-account-rest-api-get-sub-account-list
+        """
         log_process = f'{inspect.currentframe().f_code.co_name}'
         try:
             endpoint = '/api/v5/users/subaccount/list'
@@ -322,7 +346,10 @@ class MyOKX:
             return -1, Exception(f'{log_process} | {e}')
 
     async def SUBACCOUNT_get_balance(self, subaccount_name: str, ticker: str) -> Tuple[int, Union[float, Exception]]:
-        """Gets the balance for a specific coin in a specific subaccount."""
+        """
+        Gets the balance for a specific coin in a specific subaccount.
+        Endpoint: https://www.okx.cab/docs-v5/en/#sub-account-rest-api-get-sub-account-funding-balance
+        """
         log_process = f'{inspect.currentframe().f_code.co_name}'
         try:
             endpoint = '/api/v5/asset/subaccount/balances'
@@ -345,7 +372,10 @@ class MyOKX:
             return -1, Exception(f'{log_process} | {e}')
 
     async def SUBACCOUNT_transfer_to_main(self, subaccount_name: str, ticker: str, amount: float) -> Tuple[int, Union[str, Exception]]:
-        """Transfers coins from a subaccount to the main account for a specific coin from a specific subaccount."""
+        """
+        Transfers coins from a subaccount to the main account for a specific coin from a specific subaccount.
+        Endpoint: https://www.okx.cab/docs-v5/en/#funding-account-rest-api-funds-transfer
+        """
         log_process = f'{inspect.currentframe().f_code.co_name}'
         try:
             endpoint = '/api/v5/asset/transfer'
