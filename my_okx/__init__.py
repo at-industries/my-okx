@@ -1,3 +1,1 @@
-from .myokxfunding import MyOkxFunding
-from .models.assetbalance import *
-from .models.networkinfo import *
+from .myokx import MyOKX
