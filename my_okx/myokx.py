@@ -430,7 +430,7 @@ class MyOKX:
             'OK-ACCESS-TIMESTAMP': timestamp,
             'OK-ACCESS-SIGN': signature,
         }
-        if method == 'GET':
+        if isinstance(body, str):
             response = await afh(
                 self._httpx_client.request, self._asynchrony,
                 method=method, url=(self.host + endpoint + body), headers=headers,
