@@ -444,7 +444,7 @@ class MyOKX:
         return response
 
     def _get_signature(self, timestamp: str, method: str, endpoint: str, body: Union[str, dict]) -> bytes:
-        message = timestamp + method.upper() + endpoint + (json.dumps(body) if isinstance(body, dict) else body)
+        message = timestamp + method.upper() + endpoint + (json.dumps(body, separators=(',', ':')) if isinstance(body, dict) else body)
         mac = hmac.new(bytes(self._secret_key, encoding='utf-8'), bytes(message, encoding='utf-8'), digestmod='sha256')
         signature = base64.b64encode(mac.digest())
         return signature
