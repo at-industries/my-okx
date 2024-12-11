@@ -313,7 +313,7 @@ class MyOKX:
         except Exception as e:
             return -1, Exception(f'{log_process} | {e}')
 
-    async def SUBACOUNT_get_subaccounts(self, ) -> Tuple[int, Union[list, Exception]]:
+    async def SUBACCOUNT_get_subaccounts(self, ) -> Tuple[int, Union[list, Exception]]:
         """
         Gets the names of all subaccounts created under the main OKX account.
         Endpoint: https://www.okx.cab/docs-v5/en/#sub-account-rest-api-get-sub-account-list

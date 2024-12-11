@@ -21,7 +21,7 @@ MyOKX - это утилитарная библиотека для работы �
 8. `FUNDING_post_withdrawal` - ончейн вывод средств на кошелек.
 9. `FUNDING_get_withdrawal` - получение информации по ончейн выводу.
 10. `FUNDING_check_withdrawal` - проверка ончейн вывода на успех.
-11. `SUBACOUNT_get_subaccounts` - получение списка всех суб-аккаунтов.
+11. `SUBACCOUNT_get_subaccounts` - получение списка всех суб-аккаунтов.
 12. `SUBACCOUNT_get_balance` - получение баланса на суб-аккаунте.
 13. `SUBACCOUNT_transfer_to_main` - перевод средств с основного аккаунта на суб-аккаунт.
 
@@ -115,15 +115,17 @@ async def example_03():
 asyncio.run(example_03())
 ```
 
-### Пример использования метода `SUBACOUNT_get_subaccounts`
-Метод `SUBACOUNT_get_subaccounts` получает список имен всех созданных суб-аккаунтов.
+### Пример использования метода `SUBACCOUNT_get_subaccounts`
+Метод `SUBACCOUNT_get_subaccounts` получает список имен всех созданных суб-аккаунтов.
+
 ```python
 async def example_04():
-    status, result = await my_okx.SUBACOUNT_get_subaccounts()
+    status, result = await my_okx.SUBACCOUNT_get_subaccounts()
     if status == 0:
         print(f'04 | Subaccounts: {result}')
     else:
         print(f'04 | Error while getting subaccounts: {result}')
+
 
 asyncio.run(example_04())
 ```

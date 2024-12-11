@@ -57,7 +57,7 @@ asyncio.run(example_03())
 
 
 async def example_04():
-    status, result = await my_okx.SUBACOUNT_get_subaccounts()
+    status, result = await my_okx.SUBACCOUNT_get_subaccounts()
     if status == 0:
         print(f'04 | Subaccounts: {result}')
     else:
