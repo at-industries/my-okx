@@ -44,7 +44,7 @@ from my_okx import MyOKX
 ```
 
 ### Создание экземпляра класса `MyOKX`
-Создаем экземпляр класса `MyOKX` с обязательным параметрами `api_key`, `secret_key`, `passphrase` и опциональным параметром `asynchrony`. Подробнее о параметрах — в комментариях конструктора класса `MyWeb3`. 
+Создаем экземпляр класса `MyOKX` с обязательным параметрами `api_key`, `secret_key`, `passphrase` и опциональным параметром `asynchrony`. Подробнее о параметрах — в комментариях конструктора класса `MyOKX`. 
 ```python
 my_okx = MyOKX(
     api_key='YOUR-API-KEY',
