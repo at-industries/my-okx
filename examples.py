@@ -1,5 +1,5 @@
 import asyncio
-from my_okx.myokx import MyOKX
+from my_okx import MyOKX
 
 
 my_okx = MyOKX(
